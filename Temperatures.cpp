@@ -12,15 +12,25 @@ using namespace std;
  **/
 int main()
 {
-    int n; // the number of temperatures to analyse
+    int n,hasil=6000,jarak=0,result=0; // the number of temperatures to analyse
     cin >> n; cin.ignore();
     for (int i = 0; i < n; i++) {
         int t; // a temperature expressed as an integer ranging from -273 to 5526
         cin >> t; cin.ignore();
+        if(abs(t)<hasil){
+            hasil = abs(t);
+            result = t;
+        } else if(abs(t)==hasil){
+            if(t<result){
+                result = abs(t);
+            } else {
+                result = t;
+            }
+        }
     }
 
     // Write an action using cout. DON'T FORGET THE "<< endl"
     // To debug: cerr << "Debug messages..." << endl;
 
-    cout << "result" << endl;
+    cout << result << endl;
 }
